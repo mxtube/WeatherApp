@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xbE-L2-5lw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cities-->
+        <scene sceneID="YQo-xe-mN1">
+            <objects>
+                <tableViewController id="02p-dj-FoU" customClass="CitiesList" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="LVy-73-O3H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="Blue"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityRow" id="7MN-SK-1Nr" customClass="CityCell" customModule="WeatherApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7MN-SK-1Nr" id="gdx-wr-zbh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r03-gq-nYF">
+                                            <rect key="frame" x="30" y="16" width="314.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="Yellow"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOv-gA-SAt">
+                                            <rect key="frame" x="344.5" y="16" width="39.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="Yellow"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="r03-gq-nYF" firstAttribute="leading" secondItem="gdx-wr-zbh" secondAttribute="leadingMargin" constant="10" id="1Es-VG-DUU"/>
+                                        <constraint firstItem="r03-gq-nYF" firstAttribute="top" secondItem="gdx-wr-zbh" secondAttribute="topMargin" constant="5" id="652-X4-mMe"/>
+                                        <constraint firstItem="FOv-gA-SAt" firstAttribute="leading" secondItem="r03-gq-nYF" secondAttribute="trailing" id="H7v-UD-6me"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FOv-gA-SAt" secondAttribute="trailing" constant="10" id="Q8h-BC-7Ct"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="r03-gq-nYF" secondAttribute="bottom" constant="5" id="VuK-cc-DHv"/>
+                                        <constraint firstItem="FOv-gA-SAt" firstAttribute="top" secondItem="gdx-wr-zbh" secondAttribute="topMargin" constant="5" id="b2F-8x-1tQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="FOv-gA-SAt" secondAttribute="bottom" constant="5" id="dQf-ba-xus"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="cityName" destination="r03-gq-nYF" id="khK-mq-aKd"/>
+                                    <outlet property="cityTemp" destination="FOv-gA-SAt" id="5lx-Ok-GfT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="02p-dj-FoU" id="e4V-8m-W4a"/>
+                            <outlet property="delegate" destination="02p-dj-FoU" id="XkN-De-q2r"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cities" id="EUJ-5G-PKw">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="UDe-tc-GWk">
+                            <color key="tintColor" name="Yellow"/>
+                            <connections>
+                                <action selector="addCityAction:" destination="02p-dj-FoU" id="hGT-Y8-Rgh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TLT-iv-o7C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="989" y="-303"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qwn-S9-iPc">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="xbE-L2-5lw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S4d-5d-27k">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="Blue"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <textAttributes key="titleTextAttributes">
+                                <color key="textColor" name="Yellow"/>
+                            </textAttributes>
+                            <barButtonItemAppearance key="buttonAppearance">
+                                <barButtonItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" name="Yellow"/>
+                                    </textAttributes>
+                                </barButtonItemStateAppearance>
+                                <barButtonItemStateAppearance key="highlighted"/>
+                                <barButtonItemStateAppearance key="disabled"/>
+                                <barButtonItemStateAppearance key="focused"/>
+                            </barButtonItemAppearance>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="02p-dj-FoU" kind="relationship" relationship="rootViewController" id="kNz-BS-dsg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epq-UG-Bji" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="99" y="-303"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Blue">
+            <color red="0.078000001609325409" green="0.42399999499320984" blue="0.49399998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Yellow">
+            <color red="0.91764705882352937" green="0.84313725490196079" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
